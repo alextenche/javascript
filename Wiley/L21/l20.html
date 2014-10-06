@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>L21</title>
+	<style type="text/css">
+		td {
+			text-decoration: none;
+			border: 1px solid gray;
+			width: 50px;
+		}
+		
+		td a {
+		text-decoration: none;
+		}
+		
+		#results {
+			height: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="divContainer">
+		<span class="button-normal">
+		
+		</span>
+		
+		<span class="button-normal">
+		
+		</span>
+		
+		<span class="button-normal">
+		
+		</span>
+		
+	</div>
+	<script type="text/javascript" src="eventUtility.js"></script>
+	<script type="text/javascript">
+		function addDigit(digit){
+			var resultField = document.getElementById("results");
+			resultField.innerHTML += digit;		
+		}
+		
+		function calculate(){
+			var resultField = document.getElementById("results");
+			
+			resultField.innerHTML = eval(resultField.innerHTML);
+		}
+		
+		
+		
+		function reset(){
+			var resultField = document.getElementById("results");
+			
+			resultField.innerHTML = "";
+		}
+		
+		function getHandlerFunction(innerHTML){
+			return function(){
+				addDigit(innerHTML);
+				
+				return false;
+			}
+		}
+		
+		onload = function(){
+			var links = document.getElementsByTagName("a");
+			var length = links.length;
+			
+			for(var i=0; i < length; i++){
+				var link = links[i];
+				var innerHTML = link.innerHTML;
+				var func = null;
+				
+				switch(innerHTML){
+					case "Clear":
+						func = reset;
+						break;
+					case "=":
+						func = calculate;
+						break;
+					default:
+						func = getHandlerFunction(innerHTML);
+						break;
+				}
+				eventUtility.addEvent(link, "click", func);
+				//link.addEventListener("click", func, false);
+			}
+		};
+		
+		
+	</script>
+	
+</body>
+</html>
