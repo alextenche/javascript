@@ -6,22 +6,18 @@
 </head>
 <body>
 	<form name="theForm" action="" onsubmit="validateForm(event)">
+		<p>Name:<input type="text" name="txtName"/></p>
+		<p>Age:<input type="text" name="txtAge"/></p>
+		<p>Email:<input type="text" name="txtEmail"/></p>
+		<p>Password:<input type="password" name="txtPassword"/></p>
+		<p>Retype Password:<input type="password" name="txtPassword2"/></p>
+		
 		<input name="btnSubmit" type="submit" value="Submit"/>
 	</form>
 	<script type="text/javascript" src="eventUtility.js"></script>
 	<script type="text/javascript">
 		function validateForm(event){
-			var button = document.theForm.btnSubmit;
 			
-			button.disabled = true;
-			
-			var notValidated = confirm("Do you want to simulate an invalid form?");
-			
-			if(notValidated){
-				alert("Invalid data was found in the form. Please fix and submit again.");
-				button.disabled = false;
-				eventUtility.preventDefault(event);
-			}
 		}
 	
 	</script>
