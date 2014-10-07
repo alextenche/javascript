@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Lesson 26</title>
+</head>
+<body>
+	<form name="theForm" action="" onsubmit="trySubmit(event)">
+		<input type="submit" value="Submit"/>
+	</form>
+	<script type="text/javascript" src="eventUtility.js"></script>
+	<script type="text/javascript">
+		alert("Page Loaded");
+		
+		function trySubmit(event){
+			if(confirm("Do you want to stop submision?")){
+				eventUtility.preventDefault(event);
+			}
+		}
+	
+	
+	</script>
+</body>
+</html>
