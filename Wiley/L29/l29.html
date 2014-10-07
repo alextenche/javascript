@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>Lesson 28</title>
+	<title>Lesson 29</title>
 </head>
 <body>
 	<form name="theForm" action="" onsubmit="validateForm(event)">
@@ -11,11 +11,26 @@
 		<p>Email:<input type="text" name="txtEmail"/></p>
 		<p>Password:<input type="password" name="txtPassword1"/></p>
 		<p>Retype Password:<input type="password" name="txtPassword2"/></p>
+		<p>Your favorite Day: <select id="dayOfTheWeek" name="dayOfTheWeek"></select></p>
 		
 		<input name="btnSubmit" type="submit" value="Submit"/>
 	</form>
 	<script type="text/javascript" src="eventUtility.js"></script>
 	<script type="text/javascript">
+		function populateDays(){
+			var days = ["Sunday", "Monday", "Tuesday", "Wendesday", "Friday", "Saturday"];
+			var dayOfWeek = document.getElementById("dayOfTheWeek");
+			var today = (new Date()).getDay();
+			
+			for(var i = 0; i < days.length; i++){
+				var length = dayOfWeek.options.length;
+				
+				dayOfWeek.add(new Option(days[i], i),length);
+			}
+			
+			dayOfTheWeek.selectedIndex = today;
+		}
+	
 		function validateForm(event){
 			var theForm = document.theForm;
 			var txtName = theForm.txtName;
@@ -70,6 +85,8 @@
 		function isEmpty(value){
 			return (value === "");
 		}
+		
+		populateDays();
 	
 	</script>
 </body>
