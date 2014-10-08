@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>Lesson 38</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function writeTable(timesTable){
+			var writeString = "";
+			
+			for(var counter = 1; counter < 12; counter++){
+				writeString = counter + " * " + timesTable + " = ";
+				writeString = writeString + (timesTable * counter);
+				writeString = writeString + "<br>";
+				
+				document.write(writeString);
+			}
+		}
+		
+		writeTable(2);
+	</script>
+</body>
+</html>
