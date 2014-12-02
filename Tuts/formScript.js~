@@ -12,6 +12,6 @@ nameField.onblur = function(){
 
 emailField.onfocus = function(){
 	if(emailField.value == 'email address'){
-		emailField.value = '';
+		emailField = '';
 	}
 };
