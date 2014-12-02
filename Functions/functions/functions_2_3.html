@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript: Functions</title>
+</head>
+<body>
+	<script>
+			var speak = function(saywath){
+				console.log(saywath)
+			}
+			
+			var Dog = function () {
+				var name, breed;
+			}
+			
+			var Cat = function () {
+				var name, breed;
+			}
+			
+			Dog.prototype.speak = speak;
+			Cat.prototype.speak = speak;
+			
+			firstDog = new Dog;
+			firstDog.name = "Rover";
+			firstDog.breed = "Doberman";
+			firstDog.speak('woof');
+			
+			firstCat = new Cat;
+			firstCat.name = "Tasha";
+			firstCat.breed = "Manx";
+			firstCat.speak('mieow');
+			//console.log(firstDog.name);
+			//console.log(secondDog.name);
+			
+	</script>
+</body>
+</html>
