@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="author" content="Tenche Alexandru">
+		<title>Prototypes</title>
+	</head>
+
+<body>
+	<script>
+
+	String.prototype.countAll = function(letter){
+		var letterCount = 0;
+		for (var i = 0; i < this.length; i++) {
+			if(this.charAt(i).toUpperCase() == letter.toUpperCase()){
+				letterCount++;
+			}
+		}
+		return letterCount++;
+	};
+
+	var testing = "Ana are mere si pere.";
+	console.log(testing.countAll('e'));
+	</script>
+
+</body>
+</html>

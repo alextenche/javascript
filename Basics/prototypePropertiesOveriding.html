@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="author" content="Tenche Alexandru">
+		<title>Prototype Properties Overiding</title>
+	</head>
+
+<body>
+	<script>
+
+		var Tornado = function(category, affectedAreas, windGust){
+			this.category = category;
+			this.affectedAreas = affectedAreas;
+			this.windGust = windGust;
+		};
+
+		var cities = [["Timisoara", 300200], ["Buzias", 3000], ["Topolovat", 800]];
+		var twister = new Tornado("F5", cities, 220);
+
+		cities.push(["Racovita", 700]);
+
+		Tornado.prototype.valueOf = function(){
+			var  sum = 0;
+			for (var i = 0; i < this.affectedAreas.length; i++) {
+				sum += this.affectedAreas[i][1];
+			}
+			return sum;
+		};
+
+		Tornado.prototype.toString = function(){
+			var  list = "";
+			for (var i = 0; i < this.affectedAreas.length; i++) {
+				if(i < this.affectedAreas.length - 1){
+					list = list + this.affectedAreas[i][0] + ", ";
+				} else {
+					list = list + "and " + this.affectedAreas[i][0];
+				}
+			}
+			return "This tornado has been classified as an " + this.category +
+			", with wind guts up to " + this.windGust + "km/h. Affected areas are: " +
+			list + ", potentially affecting a population of " + this.valueOf() + ".";
+		};
+
+		console.log(twister.toString());
+
+		console.log(twister.constructor.prototype);
+
+		console.log(twister.__proto__);
+
+		Object.prototype.findOwnerOfProperty = function(propName){
+			var currentObject = this;
+			while(currentObject !== null){
+				if(currentObject.hasOwnProperty(propName)){
+					return currentObject;
+				} else {
+					currentObject = currentObject.__proto__;
+				}
+			}
+			return "No property found!";
+		};
+
+		console.log(twister.findOwnerOfProperty("valueOf"));
+		console.log(twister.findOwnerOfProperty("goToOz"));
+	</script>
+
+</body>
+</html>

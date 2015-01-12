@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="author" content="Tenche Alexandru">
+		<title>Bound Variables Closure</title>
+	</head>
+
+<body>
+	<script>
+	
+		function buildCoveTicketMaker(transport){
+			var passengerNumber = 0;
+			return function (name){
+				passengerNumber++;
+				alert("Here is your transportation ticket via the " + transport + "\n" +
+					"Welcome to the Cold Closures Cove, " + name + "!" + 
+					"You are passenger #" + passengerNumber + ".");
+			}	
+		}
+		
+		var getSubmarineTicket = buildCoveTicketMaker("Submarine");
+		getSubmarineTicket("Alex");
+		getSubmarineTicket("Diana");
+
+	</script>
+
+
+</body>
+</html>
