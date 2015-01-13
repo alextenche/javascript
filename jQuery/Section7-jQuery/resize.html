@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<style type="text/css">
+		#box{
+			width: 200px;
+			height: 200px;
+			background-color: yellow;
+			border: 1px solid black;
+		}
+
+		#parentbox{
+			width: 600px;
+			height: 600px;
+			background-color: #f0f0f0;
+			border: 1px solid black;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#box').resizable({
+				containment: 'parent',
+				animate : true,
+				ghost : true,
+				animateDuration : 'fast'
+			});
+
+			
+		});
+	</script>
+</head>
+
+<body>
+	<div id="parentbox">
+		<div id="box"></div>
+	</div>
+</body>
+</html>

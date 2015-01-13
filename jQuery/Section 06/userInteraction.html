@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>jQuery AJAX</title>
+	</head>
+
+	<body>
+
+	<a href="#" id="load">Show me file content</a>
+	<div id="contents"></div>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$('#load').on('click', function(){
+				var contents = $('#contents');
+
+				$.ajax({
+					url : 'file.txt',
+					cache : false,
+					success : function(data){
+						contents.text(data);	
+					},
+					error : function(){
+						console.log('something went wrong');
+					}
+
+			});
+			});
+			
+		</script>
+	</body>
+
+</html>
+	

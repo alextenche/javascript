@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>jQuery AJAX</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+
+	<body>
+
+		<div id="contents"></div>
+
+		<script>
+			
+			$.ajax({
+				url : 'file.php',
+				type : 'POST',
+				data : {name : 'Alex'},
+				success : function(data){
+					console.log(data);
+				},
+				error : function(){
+					console.log('something went wrong');
+				}
+			});
+				
+			
+		</script>
+	</body>
+
+</html>
+	

@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script>
+			$(document).ready(function(){
+			
+				$("#menu li").hover(function(){
+					$(this).children(":hidden").slideDown();},
+						function(){
+							$(this).parent().find("ul").slideUp();
+					});
+				
+			});
+		</script>
+		<style>
+			#menu{
+				height: 30px;
+				background-color: #F90;
+			}
+
+			#menu li li:hover{
+				background-color: yellow;
+				cursor: pointer;
+			}
+
+			#menu ul, #menu li{
+				list-style-type: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			#menu li{
+				float: left;
+				width: 120px;
+				list-style-type: none;
+				line-height: 30px;
+				text-align: center;
+			}
+			
+			#menu li ul{
+				position: absolute;
+				background-color: #F90;
+				display: none;
+			}
+			
+			#menu li li{
+				float: none;
+				padding:2px;
+			}
+			
+			#menu a {
+				color: #000;
+				text-decoration: none;
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+	<div id="menu">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Info</a>
+				<ul>
+					<li><a href="#">Submenu1</a></li>
+					<li><a href="#">Submenu2</a></li>
+					<li><a href="#">Submenu3</a></li>
+				</ul>
+			</li>
+
+			<li><a href="#">Portfolio</a>
+				<ul>
+					<li><a href="#">Submenu1</a></li>
+					<li><a href="#">Submenu2</a></li>
+					<li><a href="#">Submenu3</a></li>
+				</ul>
+			</li>
+
+			</li>
+		</ul>
+	</div>
+	</body>
+</html>

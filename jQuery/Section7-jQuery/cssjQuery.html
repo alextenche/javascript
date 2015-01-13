@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var data = 'hello!<br>';
+
+				$('p').click(function(){
+					$(this).css('color', 'red');	
+				});
+
+				$('button').click(function(){
+					$('#i').append(data);	
+				});
+
+			});
+		</script>
+	</head>
+	
+	<body>
+
+		<button>Click</button>
+		<div id="i"></div>
+		<p> this is my first p </p>
+		<p> this is my second p </p>
+		<p> this is my third p </p>
+
+	</body>
+</html>

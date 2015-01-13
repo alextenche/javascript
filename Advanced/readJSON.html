@@ -1,0 +1,24 @@
+<!doctype html >
+<html>
+<head>
+	<title>Reading file with jQuery AJAX</title>
+	<script src="http//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+
+		document.getElementById('button').click(function(){
+			$.get('testjson.php',function(data){
+				document.write(data);
+				document.getElementById('result').innerHTML(data);
+			});
+		});
+				
+	</script>
+</head>
+	
+<body>
+		
+	<input type="button" value="read">
+	<div id="result"></div>
+
+</body>
+</html>

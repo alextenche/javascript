@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+
+	$("div").mouseenter(function(){
+		$("div").animate({ height:'toggle' });
+	});
+	
+	$("a").mouseenter(function(){
+      $(this).find("div").animate({top:"-150px"},400);
+    });
+	
+	 $("a").mouseleave(function(){
+		$(this).find("div").animate({top:"0"},400);
+	});
+  
+  
+	$("div").mousleave(function(){
+		$("div").animate({ height:'toggle' });
+	});
+  
+  
+  
+});
+</script> 
+</head>
+ 
+<body>
+<button>Start Animation</button>
+<p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+<a>
+<div style="background:#98bf21;height:200px;width:200px;position:absolute;">
+</div>
+</a>
+
+</body>
+</html>

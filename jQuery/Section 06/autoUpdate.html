@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>jQuery AJAX</title>
+	</head>
+
+	<body>
+
+	<div id="contents"></div>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+			
+			var contents = $('#contents');
+
+			setInterval(function(){
+				$.ajax({
+					url : 'file.txt',
+					cache : false,
+					success : function(data){
+						contents.text(data);	
+					},
+					error : function(){
+						console.log('something went wrong');
+					}
+				});
+			}, 1000);
+
+				
+			
+		</script>
+	</body>
+
+</html>
+	

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<head>
+		<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				$('#first').hover(function(){
+					$('#div1').fadeToggle(1000);
+				});
+
+				$('#second').dblclick(function(){
+					$('#div2').slideToggle();
+				});
+
+			});
+		</script>
+	</head>
+	
+	<body>
+
+		<a href="#" id="first"><h3>News of Today</h3></a><p>
+		<div id="div1" style="display:none;">This is the new of today, nothing special</div>
+		
+		<a href="#" id="second"><h3>Sport News</h3></a><p>
+		<div id="div2" style="display:none;">This is the new of today, nothing special</div>
+
+	</body>
+</html>

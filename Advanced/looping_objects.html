@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="author" content="Alex Tenche">
+	<meta charset="utf-8" />
+	<title>Reading from JSON</title>
+</head>
+
+<body>
+
+	<h2>Links</h2>
+	<ul id="links"></ul>
+
+	<script>
+		
+		var info = {
+			"full_name" : "Ray Villalobos",
+			"title" : "Staff Author",
+			"links" : {
+				"blog"     : "http://iviewsource.com",
+				"facebook" : "http://facebook.com/iviewsource",
+				"youtube"  : "http://www.youtube.com/planetoftheweb",
+				"podcast"  : "http://feeds.feedburner.com/authoredcontent",
+				"twitter"  : "http://twitter.com/planetoftheweb" 
+			}
+		};
+		
+		var output = "";
+		
+		for(key in info.links){
+			if(info.links.hasOwnProperty(key)){
+				output += '<li>' +
+				'<a href = "' + info.links[key] +
+				'">' + key + '</a>' +
+				'</li>';
+			} // if the links has the key property
+		} // for..go through each link
+		
+		var update = document.getElementById('links');
+		update.innerHTML = output;
+		
+	</script>
+	
+</body>
+</html>

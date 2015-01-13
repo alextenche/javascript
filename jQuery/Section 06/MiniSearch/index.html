@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mini Search</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+
+	<body>
+
+		<br>
+		<label>Name:<input type="text" id="name"> </label>
+		<input type="submit" id="fetch">
+
+		<dl>
+			<dt>Age</dt>
+			<dd class="age">-</dd>
+
+			<dt>Location</dt>
+			<dd class="location">-</dd>
+
+			<dt>Job</dt>
+			<dd class="job">-</dd>
+
+			<dt>Date of birth</dt>
+			<dd class="dob">-</dd>
+
+		</dl>
+
+		<script>
+
+			$('#fetch').on('click', function(){
+				var name = $('#name').val();
+
+				$.ajax({
+					url : 'lookup.php',
+					dataType : 'json',
+					type : 'GET',
+					data : {name : name},
+					cache : false,
+					success : function(data){
+						if(data.exists){
+							for(var label in data.information){
+								$('.'+ label).text(data.information[label]);
+							}
+						} else {
+							alert('not good');
+						}
+
+					}
+
+				});
+			});
+			
+		</script>
+	</body>
+
+</html>
+	

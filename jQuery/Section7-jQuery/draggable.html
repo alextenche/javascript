@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<style type="text/css">
+		#box{
+			width: 200px;
+			height: 200px;
+			background-color: yellow;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#test').draggable({
+				containment : 'parent',
+				cursor : 'pointer',
+				opacity : 0.60,
+				grid : [50,50],
+				revert : true,
+				start : function(){$('#result').text('started');},
+				drag : function(){$('#result').text('moving');},
+				stop : function(){$('#result').text('stopped');}
+			});
+		});
+	</script>
+</head>
+
+<body>
+
+	<div id="box">
+		<span id="test">Drag me</span>	
+	</div>
+
+	<div id="result"></div>
+
+</body>
+</html>

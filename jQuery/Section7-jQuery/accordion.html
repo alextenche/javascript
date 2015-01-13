@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<style type="text/css">
+		ul{
+			border: 1px solid black;
+			padding: 0px;
+			width: 200px;
+			height: 200px;
+			list-style: none;
+			
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#content').accordion({
+				icons: {'header':'ui-icon-plus','headerSelected':'ui-icon-minus'},
+				collapsible : true,
+				active : 1
+			});
+
+		});
+	</script>
+</head>
+
+<body>
+	<div id="content">
+
+		<h3><a href="#">Home</a></h3>
+		<div>This is the home page</div>
+
+		<h3><a href="#">About</a></h3>
+		<div>This is the about page</div>
+
+		<h3><a href="#">Contact</a></h3>
+		<div>This is the contact page</div>
+	</div>
+</body>
+</html>

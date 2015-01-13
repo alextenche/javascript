@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://cdn-files.deezer.com/js/min/dz.js"></script>
+</head>
+
+<body>
+    <div id='dz-root'></div>
+	<input type="button" value="Play" onclick= "DZ.player.playAlbum(6125830);"/>
+	<script>
+		DZ.init({
+			appId  : '122865',
+			channelUrl : 'http://external.codecademy.com/channel.html',
+			player: {
+		        onload: function () {}
+            }
+		});
+	</script>
+</body>
+</html>

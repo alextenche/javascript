@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<style type="text/css">
+		#dropbox{
+			width: 200px;
+			height: 200px;
+			background-color: yellow;
+		}
+
+		.border{
+			border: 1px solid black;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#name1, #name2, #city').draggable({
+				containement : 'document',
+				revert : true,
+				start : function(){contents = $(this).text();}
+				
+			});
+
+			$('#dropbox').droppable({
+				containement : 'parent',
+				hoverClass : 'border',
+				tolerance : 'touch',
+				accept : '#name1',
+				over : function(){$('#dropbox').text('hovering!')},
+				out : function(){$('#dropbox').text('out of the box!')},
+				drop : function(){$('#dropbox').append(contents+'<br>')}
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<span id="name1">Alex</span>
+	<span id="name2">Blade</span>
+	<span id="city">Timisoara</span>
+
+	<div id="dropbox"></div>
+
+	
+
+</body>
+</html>

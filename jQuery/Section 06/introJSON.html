@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery AJAX</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+
+	<body>
+
+		<p id="count"></p>
+		<div id="results"></div>
+
+		<script>
+		$.ajax({
+			url : 'json.php',
+			dataType : 'json',
+			success : function(data){
+				var count = $('#count');
+				var results = $('#results');
+
+				if(data.count){
+					count.text("your search returned " + data.count + " results");
+					$(data.results).each(function(index,value){
+						results.append($('<p />',{
+							text : value
+						}));
+					});
+				} else {
+					count.text('No results.');
+				}
+			}
+		});
+			
+		</script>
+
+	</body>
+</html>
+	
