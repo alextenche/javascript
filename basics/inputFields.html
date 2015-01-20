@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JavaScript</title>
+	</head>
+	<body>
+
+		<input type="text" id="entry">
+		<span id="output">Start typing</span>
+
+		<script>
+			var app = {};
+
+			// A shorter way to get elements
+			app.getElement = function(element) {
+				return document.getElementById(element);
+			}
+
+			// Get elements required
+			app.entry = app.getElement('entry');
+			app.output = app.getElement('output');
+
+			// Create event handler
+			app.entry.onkeyup = function() {
+				app.output.innerText = this.value;
+			}
+
+		</script>
+	</body>
+</html>
