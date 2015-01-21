@@ -1,5 +1,5 @@
 /*global define*/
-define(['events'], function(events){
+define(function(){
 	'use strict';
 
 	var self = {};
@@ -13,11 +13,6 @@ define(['events'], function(events){
 				value = parseInt(value, 10) || 0;
 			}
 			total += value;
-		});
-
-		events.publish('added', {
-			operands: operands,
-			result: total
 		});
 
 		return total;

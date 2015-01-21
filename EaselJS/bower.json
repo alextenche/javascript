@@ -1,0 +1,13 @@
+{
+	"name": "advanced-canvas",
+	"version": "0.0.0",
+	"authors": [
+		"Alex Tenche <alex.tenche@gmail.com>"
+	],
+	"description": "canvas tutorial",
+	"main": "index.html",
+	"license": "MIT",
+	"dependencies":{
+		"easeljs": "*"
+	}
+}
