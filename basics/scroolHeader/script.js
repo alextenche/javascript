@@ -1,3 +1,8 @@
 function hscroll(text, speed, delay){
-	$('#header').slideToggle(500).delay(2500).slideToggle(500);
+	if(speed == undefined || delay == undefined){
+		speed = 500;
+		delay = 2500;
+	}
+	$('#header').html('<div id="text">'+text+'</div>');
+	$('#header').slideToggle(speed).delay(delay).slideToggle(speed);
 }
