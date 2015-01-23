@@ -1,52 +1,41 @@
 'use strict';
 
 var utils = require('./utils'),
-	domReady = utils.domReady;
+	domReady = utils.domReady,
+	Hero = require('./Hero'),
+	Diamond = require('./Diamond'),
+	Box = require('./Box'),
+	Block = require('./Block'),
+	levels = require('./levels');
+
+var classMap = {
+	'1' : Block,
+	'2' : Diamond,
+	'3' : Box,
+	'4' : Hero
+};
 
 console.log('Game Started: EaselJS version: ' + createjs.EaselJS.version);
 
 domReady(function(){
 	var stage = new createjs.Stage('main');
 
-	var group = new createjs.Container();
-	group.x = 200;
-	group.y = 175;
-	group.regX = 100;
-	group.regY = 100;
-	stage.addChild(group);
+	var map = levels[0].map;
+	var tiles = [];
 
-	group.on('tick', function(event){
-		this.rotation -= 1;
+	map.forEach(function(row, indexY){
+		tiles.push([]);
+		row.forEach(function(title, indexX){
+			var TileClass = classMap[tile];
+			if(TileClass){
+				var newTile = new TileClass(indexX, indexY);
+				stage.addChild(newTile);
+			}
+			tiles[indexY][indexX] = newTile;
+		});
 	});
 
-	var circle = new createjs.Shape();
-	circle.graphics.beginFill('green').drawCircle(0, 0, 50);
-	circle.x = 100;
-	circle.y = 100;
-	group.addChild(circle);
-
-	var square = new createjs.Shape();
-	square.graphics.beginFill('green')
-				   .drawRect(0, 0, 50, 50)
-				   .endFill()
-				   .beginStroke('rgba(0,0,0,1)')
-				   .moveTo(5,75)
-				   .bezierCurveTo(45, 90, 75, 75, -25, -25)
-				   .endStroke();
-	square.x = 200;
-	square.y = 100;
-	group.addChild(square);
-
-	var introText = new createjs.Text('Welcome to the game.', '20px Arial', '#ccc');
-	introText.x = 200;
-	introText.y = 300;
-	introText.lineWidth = 100;
-	stage.addChild(introText);
+	console.log(tiles);
 	
-
-	createjs.Ticker.timingMode = createjs.Ticker.RAF;
-	createjs.Ticker.setFPS(60);
-	createjs.Ticker.addEventListener('tick', function(event){
-		stage.update();
-	});
+	stage.update();
 });
