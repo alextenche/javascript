@@ -1,2 +1,4 @@
 /EaselJS/node_modules/
 /EaselJS/bower_components/
+/yeoman2/*
+/yeoman-demo/*

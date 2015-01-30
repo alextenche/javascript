@@ -39,20 +39,29 @@ define(['numbers', 'events'], function(numbers, events){
 			});*/
 
 			it('should publish an added event showing the operands passed to the method and the result', function(){
+				spyOn(events, 'publish');
 				//spyOn(events, 'publish').and.callThrough();
 				//spyOn(events, 'publish').and.returnValue(false);
 				//spyOn(events, 'publish').and.callFake(function(name, args){
 				//	window.alert(name);
 				//});
-				spyOn(events, 'publish').and.throwError('oops');
-				expect(function(){
-					numbers.add(1,1);
-				}).toThrowError('oops');
+				//spyOn(events, 'publish').and.throwError('oops');
+				//events.publish.and.stub();
+				//expect(function(){
+				//	numbers.add(1,1);
+				//}).toThrowError('oops');
+				expect(events.publish.calls.any()).toBe(false);
 
 				numbers.add(this.numberInput1, this.numberInput2);
 
 				expect(events.publish).toHaveBeenCalled();
 				expect(events.publish).toHaveBeenCalledWith('added', {operands:[this.numberInput1, this.numberInput2], result: 3});
+
+				expect(events.publish.calls.count()).toEqual(1);
+
+				numbers.add(this.numberInput1, this.stringInput1);
+				expect(events.publish.calls.count()).toEqual(2);
+				expect(events.publish.calls.argsFor(1)).toEqual([jasmine.any(String), jasmine.any(Object)]);
 			});
 		});
 	});

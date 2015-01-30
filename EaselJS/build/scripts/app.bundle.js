@@ -42,6 +42,7 @@ module.exports = createSubClass(Tile, 'Diamond', {
 function Diamond$initialize(x, y){
 	Tile.prototype.initialize.apply(this, arguments);
 	this.name = 'diamond';
+	console.log('tile ok');
 	this.graphics.beginFill('blue').drawCircle(0, 0, 50, 50);
 }
 },{"./Tile":5,"./utils/create_subclass":8}],4:[function(require,module,exports){
@@ -74,6 +75,7 @@ module.exports = createSubClass(Shape, 'Tile', {
 });
 
 function Tile$initialize(x, y){
+	console.log('tile ok');
 	Shape.prototype.initialize.call(this, null);
 	this.setPos(x,y);
 	console.log('tile ok');
@@ -119,10 +121,12 @@ var classMap = {
 	'4' : Hero
 };
 
+var c = createjs;
+
 console.log('Game Started: EaselJS version: ' + createjs.EaselJS.version);
 
 domReady(function(){
-	var stage = new createjs.Stage('main');
+	var stage = new c.Stage('main');
 
 	var map = levels[0].map;
 	var tiles = [];
@@ -134,8 +138,9 @@ domReady(function(){
 			if(TileClass){
 				var newTile = new TileClass(indexX, indexY);
 				stage.addChild(newTile);
+				tiles[indexY][indexX] = newTile;
 			}
-			tiles[indexY][indexX] = newTile;
+			
 		});
 	});
 
@@ -151,9 +156,8 @@ module.exports = createSubclass;
 function createSubclass(Superclass, name, methods){
 	var Subclass;
 
-	//Subclass = function() {this.initialize.apply(this, arguments)};
-	eval('Subclass = function ' + name + 
-		'(){this.initialize.apply(this, arguments)}');
+	Subclass = function(){this.initialize.apply(this, arguments)};
+	//eval('Subclass = function ' + name + ' (){ this.prototype.initialize.apply(this, arguments) }');
 
 	Subclass.prototype = new Superclass();
 

@@ -10,5 +10,6 @@ module.exports = createSubClass(Tile, 'Diamond', {
 function Diamond$initialize(x, y){
 	Tile.prototype.initialize.apply(this, arguments);
 	this.name = 'diamond';
+	console.log('tile ok');
 	this.graphics.beginFill('blue').drawCircle(0, 0, 50, 50);
 }

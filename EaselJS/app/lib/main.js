@@ -15,10 +15,12 @@ var classMap = {
 	'4' : Hero
 };
 
+var c = createjs;
+
 console.log('Game Started: EaselJS version: ' + createjs.EaselJS.version);
 
 domReady(function(){
-	var stage = new createjs.Stage('main');
+	var stage = new c.Stage('main');
 
 	var map = levels[0].map;
 	var tiles = [];
@@ -30,8 +32,9 @@ domReady(function(){
 			if(TileClass){
 				var newTile = new TileClass(indexX, indexY);
 				stage.addChild(newTile);
+				tiles[indexY][indexX] = newTile;
 			}
-			tiles[indexY][indexX] = newTile;
+			
 		});
 	});
 

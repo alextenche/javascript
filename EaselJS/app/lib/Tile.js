@@ -11,6 +11,7 @@ module.exports = createSubClass(Shape, 'Tile', {
 });
 
 function Tile$initialize(x, y){
+	console.log('tile ok');
 	Shape.prototype.initialize.call(this, null);
 	this.setPos(x,y);
 	console.log('tile ok');
