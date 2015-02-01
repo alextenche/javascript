@@ -1,5 +1,4 @@
-function RobotMazeInterface(robot,maze,selector
-  ) {
+function RobotMazeInterface(robot,maze,selector) {
   this.robot = robot;
   this.maze  = maze;
   this.selector = selector;
