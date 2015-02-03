@@ -100,10 +100,3 @@ js24Hour.ajaxUtility = {
 	}
 	
 };
-
-
-
-
-
-
-

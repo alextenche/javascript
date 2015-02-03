@@ -1,8 +1,10 @@
-// namespace our flowerApp
+// Namespace our flowerApp
 var app = app || {};
 
+// A group (array) of Flower models
 app.FlowersCollection = Backbone.Collection.extend({
 
-	model: app.singleFlower
+  // What type of models are in this collection?
+  model: app.singleFlower
 
 });
