@@ -25,7 +25,7 @@ function Maze(width, height){
 Maze.prototype.setStart = function(x, y, orientation){
 	if(this.isInBounds(x,y) && this.isValidDirection(orientation)){
 		this.startX = x;
-		this.startY = x;
+		this.startY = y;
 		this.startOrientation = orientation;
 		return true;
 	}
@@ -33,7 +33,7 @@ Maze.prototype.setStart = function(x, y, orientation){
 }
 
 Maze.prototype.setEnd = function(x, y){
-	if(!this.isInBounds(x,y)){
+	if(!this.isInBounds(x, y)){
 		return false;
 	}
 	this.endX = x;
@@ -42,7 +42,7 @@ Maze.prototype.setEnd = function(x, y){
 }
 
 Maze.prototype.setWall = function(x, y, direction){
-	if(this.isInBounds(x,y) && this.isValidDirection(direction)){
+	if(this.isInBounds(x, y) && this.isValidDirection(direction)){
 		this.spaces[x][y].setWall(direction);
 		return true;
 	}
@@ -62,7 +62,7 @@ Maze.prototype.canMove = function(x, y, direction){
 		return false;
 	}
 
-	if(!this.isInBounds(x,y)){
+	if(!this.isInBounds(x, y)){
 		return false;
 	}
 
@@ -106,7 +106,5 @@ Maze.prototype.canMove = function(x, y, direction){
 		return false;
 	}
 
-
 	return true;
 }
-
