@@ -8,6 +8,9 @@
     <script type="text/javascript">
       var isArthur = true;
       var isKing = false;
+      var isArcher = true;
+      var weapon;
+      var helmet;
 
       // console.log("Current weapon: " + (isArthur && isKing ? "Excalibur" : "Longsword"));
 
@@ -22,6 +25,19 @@
                               alert("nope, no Kings here.");
                               console.log("Current weapon: Longsword");
                             }();
+
+      isArthur && isKing ? (weapon = "Excalibur", helmet = "Crown")
+                            :
+                           (weapon = "Longsword", helmet = "Iron Helm");
+      console.log("Current weapon: " + weapon + "\nCurrent helmet: " + helmet);
+
+      // nested ternary condition
+      isArthur && isKing ? (weapon = "Excalibur", helmet = "Crown")
+                         :
+                         isArcher ? (weapon = "Longbow", helmet = "Mail Helm")
+                                  : (weapon = "Longsword", helmet = "Iron Helm");
+      console.log("Current weapon: " + weapon + "\nCurrent helmet: " + helmet);
+
     </script>
   </body>
 </html>
