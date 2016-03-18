@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script type="text/javascript">
+
+  function Knight (name, regiment) {
+    this.name = name;
+    this.regiment = regiment;
+
+    switch (regiment) {
+      case 1:
+        this.weapon = "Broadsword";
+        break;
+      case 2:
+        this.weapon = "Claymore";
+        break;
+      case 4:
+        this.weapon = "Mace";
+        break;
+      case 5:
+        this.weapon = "War Hammer"
+        break;
+      case 6:
+        this.weapon = "Battle Axe";
+        break;
+      case 3:
+      case 7:
+      case 8:
+        this.weapon = "Morning Star";
+        break;
+      case "King":
+        this.weapon = "Excalibur";
+      default:
+        alert(name + " has an incorect regiment !");
+    }
+  }
+
+  function ceremonialDagger(knight, rank){
+    this.length = 8;
+    this.owner = knight;
+    switch(rank){
+      case "King": this.diamonds = 1;
+      case "Field Marshal": this.saphires = 4;
+      case "Captain": this.emeralds = 1;
+      case "Knight": this.rubies = 6;
+    }
+  }
+
+  var soldier2 = new Knight("Alex", 3);
+  console.log(soldier2.weapon);
+
+  var knightDagger = new ceremonialDagger("Alexone", "Captain");
+  console.log(knightDagger);
+
+</script>
+</body>
+</html>

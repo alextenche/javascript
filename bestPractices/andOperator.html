@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      // result1 is undefined
+      var result1 = undefined && 42;
+      console.log(result1);
+
+      // result2 is 0
+      var result2 = 0 && ["random", "array"];
+      console.log(result2);
+
+      // result3 is ""
+      var result3 = "" && {type: "sword", material: "silver"};
+      console.log(result3);
+
+      // result4 is Daywalker
+      var result4 = "Blade" && "Daywalker";
+      console.log(result4);
+
+      // more complicated :)
+      var isKnight = true;
+      var armoryIsOpen = true;
+      // contingent assignments
+      var armory = { swords : ["Broadsword", "Katana", "Claymore", "Scimitar"],
+                     retriveSword: function (request){
+                      return (this.swords.indexOf(request) >= 0) ?
+                        this.swords.splice(this.swords.indexOf(request), 1)[0] :
+                        alert("No " + request + " founded in armory !");
+                      }
+                    };
+      // armory.swords.indexOf("Claymore");
+      // armory.retriveSword("Claymore");
+      var weapon = armoryIsOpen && armory.retriveSword("Katana");
+      console.log(weapon);
+
+      var weapon = isKnight && armory.retriveSword("Rapier");
+      console.log(weapon);
+
+    </script>
+  </body>
+</html>
