@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+
+  <h1> String Concatenation Best Practices </h1>
+
+  <script>
+    var knight = "Blade",
+        action = " strikes with a "
+        weapon = "silver sword";
+
+    var turn = "";
+    turn += knight;
+    turn += action;
+    turn += weapon;
+    console.log(turn);
+
+    // use join() for better performance when concatenating strings
+    var newTurn= ["Blade", " uses ", "a silver spike"];
+    var turn2 = "";
+    for(var i = 0, x = newTurn.length; i < x; i++){
+      turn2 += newTurn[i];
+    }
+    turn3 = newTurn.join("");
+    console.log(turn2);
+    console.log(turn3);
+  </script>
+</body>
+</html>

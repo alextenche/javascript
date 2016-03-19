@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script type="text/javascript">
+    treasureChest = {
+      goldCoins: 10000,
+      magicalItem: "Boots of Speed",
+      rings: ['pearl', 'ruby', 'php'],
+      openLid: function (){
+        alert("Creeak!");
+      }
+    }
+
+    Array.prototype.countType = function (type) {
+      var count = 0;
+      for(var i = 0, x = this.length; i < x; i++){
+        if(this[i] === type){
+          count++;
+        }
+      }
+      return count;
+    };
+
+    Array.prototype.removeAll = function (item) {
+      var removed = [];
+      for(var i = 0, x = this.length; i < x; i++){
+        if(this[i] === item){
+          removed.push(item);
+          this.splice(i, 1);
+        }
+      }
+      return removed;
+    };
+
+    console.log("You've found the following rings:");
+    var list = treasureChest.rings;
+    for(var i = 0, nrRings = treasureChest.rings.length; i < nrRings; i++) {
+      console.log(list[i]);
+    }
+
+    console.log("You've found the following rings (again ?):");
+    for(p in list) {
+      console.log(list[p]);
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+
+  <h1> Test Speed </h1>
+
+  <script>
+    function Knight (name, regiment) {
+      this.name = name;
+      this.regiment = regiment;
+
+      switch (regiment) {
+        case 1:
+          this.weapon = "Broadsword";
+          break;
+        case 2:
+          this.weapon = "Claymore";
+          break;
+        case 4:
+          this.weapon = "Mace";
+          break;
+        case 5:
+          this.weapon = "War Hammer"
+          break;
+        case 6:
+          this.weapon = "Battle Axe";
+          break;
+        case 3:
+        case 7:
+        case 8:
+          this.weapon = "Morning Star";
+          break;
+        case "King":
+          this.weapon = "Excalibur";
+        default:
+          alert(name + " has an incorect regiment !");
+      }
+    }
+
+    var firstRegimentNoobs = ["Alex", "Blade", "Magneto", "Mistyque"];
+    // array not big enough to see diff
+    var firstRegimentKnights = ["k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12"];
+
+
+      var secondRegimentNoobs = ["Alex2", "Blade2", "Magneto2", "Mistyque2"];
+      // array not big enough to see diff
+      var secondRegimentKnights = ["k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                                            "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                                            "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                                            "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                                            "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                                            "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                                            "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                                            "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                                            "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                                            "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                                            "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12",
+                                                            "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12"];
+
+
+    console.time("Total completion time");
+
+    console.time("Time to add " + firstRegimentNoobs.length + " Knights");
+    for(var i = 0, x = firstRegimentNoobs.length; i < x; i++){
+      firstRegimentKnights.push(new Knight(firstRegimentNoobs[i], 1));
+    }
+    console.timeEnd("Time to add " + firstRegimentNoobs.length + " Knights");
+
+    console.time("Time to add " + secondRegimentNoobs.length + " Knights");
+    for(var i = 0, x = secondRegimentNoobs.length; i < x; i++){
+      secondRegimentKnights.push(new Knight(secondRegimentNoobs[i], 1));
+    }
+    console.timeEnd("Time to add " + firstRegimentNoobs.length + " Knights");
+
+    console.timeEnd("Total completion time");
+
+  </script>
+</body>
+</html>
