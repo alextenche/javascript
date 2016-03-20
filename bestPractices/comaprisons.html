@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+
+  <h1> Comparisons </h1>
+
+  <script>
+  // first example
+  function countEntries(KnightResponses, value) {
+    var count = 0, x = KnightResponses.length;
+    for (var i = 0; i < x; i++) {
+      if(KnightResponses[i] === value){
+        count++;
+      }
+    }
+    return count;
+  }
+
+  var fields = ["Blade Daywalker", "1", "13", true, true, false];
+  var numCompletedTasks = countEntries(fields, true);
+  console.log(numCompletedTasks);
+
+
+  // second example
+  function Knight (name, regiment) {
+    this.name = name;
+    this.regiment = regiment;
+
+    switch (regiment) {
+      case 1:
+        this.weapon = "Broadsword";
+        break;
+      case 2:
+        this.weapon = "Claymore";
+        break;
+      case 4:
+        this.weapon = "Mace";
+        break;
+      case 5:
+        this.weapon = "War Hammer"
+        break;
+      case 6:
+        this.weapon = "Battle Axe";
+        break;
+      case 3:
+      case 7:
+      case 8:
+        this.weapon = "Morning Star";
+        break;
+      case "King":
+        this.weapon = "Excalibur";
+      default:
+        alert(name + " has an incorect regiment !");
+    }
+  }
+
+  function LeatherArmor (bodyStyle, numBuckles, numSpaulders){
+    this.bodyStyle = bodyStyle;
+    this.numBuckles = numBuckles;
+    this.numSpaulders = numSpaulders;
+  }
+  LeatherArmor.prototype = Object.create(Armor.prototype);
+
+  function ChainMail (metal, linkDiameter, hasHood, skirtLength){
+    this.metal = metal;
+    this.linkDiameter = linkDiameter;
+    this.hasHood = hasHood;
+    this.skirtLength = skirtLength;
+  }
+  ChainMail.prototype = Object.create(Armor.prototype);
+
+  function assignKnightsArmor (knights, armorAvail){
+    var x = knights.length;
+    var y = armorAvail.length;
+    for (var i = 0; i < x; i++) {
+      for (var j = 0; j < y; j++) {
+        if(armorAvail[j] instanceof ChainMail){
+          knights[i].armor = armorAvail.splice(j, 1)[0];
+          y--;
+          console.log(knights[i].armor);
+          break;
+        }
+      }
+    }
+  }
+
+  function Armor (location){
+    this.location = location;
+  }
+
+  Armor.prototype = {
+    putOn: function(){
+      alert("Your armor is on.");
+    }
+  }
+
+  var armorList = [new LeatherArmor("normal", 3, 3), new ChainMail("iron", 2, true, 20), new LeatherArmor("padded", 2, 2), new ChainMail("steel", 2, true, 20)];
+  var noobs = [new Knight("Alex", 2), new Knight("Blade", 1)];
+
+  assignKnightsArmor(noobs, armorList);
+  console.log(armorList);
+  console.log(noobs[0]);
+
+  var kingsMail = new ChainMail("gold", 2, true, 36);
+  console.log(kingsMail instanceof Armor);
+
+  </script>
+</body>
+</html>
