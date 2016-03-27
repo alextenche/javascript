@@ -3,12 +3,12 @@ var playlist = new Playlist();
 var renegades = new Song("Renegades", "X-Ambasadors", "2:54");
 var replica = new Song("Replica", "Sonata Artica", "3:12");
 
-var manOfSteel = new Movie("Man of Steel", 2013, "2:23:00");
+var endOfWatch = new Movie("End of Watch", 2012, "1:49:00");
 
 playlist.add(renegades);
 playlist.add(replica);
 
-playlist.add(manOfSteel);
+playlist.add(endOfWatch);
 
 var playlistElement = document.getElementById('playlist');
 

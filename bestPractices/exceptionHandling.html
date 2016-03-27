@@ -10,9 +10,20 @@
 
   <script>
   try {
-    alert(alarm);
-  } catch(error) {
-    alert("Error founded: " + error);
+    // alert(alarm);
+    var newHallOfFame = ["Alex", "Blade"];
+    list.concat(newHallOfFame);
+  } catch (error) {
+    if(error instanceof ReferenceError){
+      alert(error + "\n" +
+            "The HoF roster does not exist as \"list\"!\n" +
+            "Check for relocation in master document.");
+    }
+    if(error instanceof TypeError){
+      alert(error + "\n" +
+            "Alas, the HoF list has no concat method.\n" +
+            "Check for a disastrous overwrite!");
+    }
   }
 
   </script>

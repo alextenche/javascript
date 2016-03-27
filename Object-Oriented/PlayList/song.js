@@ -1,12 +1,12 @@
 function Song(title, artist, duration){
-  Media.call(this, title, duration);
+  Media.call(this,title, duration);
   this.artist = artist;
 }
 
 Song.prototype = Object.create(Media.prototype);
 
 Song.prototype.toHTML =  function(){
-  var htmlString = '<li'
+  var htmlString = '<li';
   if(this.isPlaying){
       htmlString += ' class="current"';
   }
@@ -17,6 +17,5 @@ Song.prototype.toHTML =  function(){
   htmlString += ' <span class="duration">';
   htmlString += this.duration;
   htmlString += '</span></li>';
-
   return htmlString;
 };
