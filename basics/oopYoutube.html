@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="author" content="Tenche Alexandru">
+		<title>JavaScript OOP</title>
+	</head>
+
+<body>
+	<script>
+
+	function makeGladiator(name, attack, defense, hitpoints){
+		return { name: name,
+			     attack: attack, 
+			     defense: defense, 
+			     hitpoints: hitpoints,
+				 sayName : function(){
+					console.log("My name is "+ this.name);
+				 }
+	}
+
+	var jesse = makeGladiator("Jesse", 12, 10, 12);
+				  
+	var john = makeGladiator("John", 10, 12, 10);
+				  
+
+
+	
+	</script>
+
+</body>
+</html>

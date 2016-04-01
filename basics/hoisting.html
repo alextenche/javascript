@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="author" content="Tenche Alexandru">
+		<title>Hoisting</title>
+	</head>
+
+<body>
+	<script>
+
+		/*function getMysteryNumber(){
+
+			function chooseMystery(){
+				return 12;
+			}
+
+			return chooseMystery();
+
+			function chooseMystery(){
+				return 12;
+			}			
+		}
+		
+		getMysteryNumber();  //returns 7*/
+
+		function capacityStatus(numPassengers, capacity){
+			
+			var noSeats = function(){
+				alert("No more seats for you !");
+				return false;
+			}
+
+			var seatsAvail = function(){
+				alert("There are " + (capacity - numPassengers) +  " seats left!");
+			}
+
+			if(numPassengers == capacity){
+				noSeats();
+			} else {
+				seatsAvail();
+			}
+
+		}
+
+		capacityStatus(60,65);
+
+	</script>
+
+
+</body>
+</html>
