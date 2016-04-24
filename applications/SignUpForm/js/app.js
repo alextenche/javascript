@@ -1,62 +1,48 @@
-//Problem: Hints are shown even when form is valid
-//Solution: Hide and show them at appropriate times
+"use strict";
+
 var $password = $("#password");
 var $confirmPassword = $("#confirm_password");
+var $username = $("#username");
 
-//Hide hints
 $("form span").hide();
 
-function isPasswordValid() {
+function isUsernamePresent() {
+  return $username.val().length > 0;
+}
+
+function isPasswordValid(){
   return $password.val().length > 8;
 }
 
-function arePasswordsMatching() {
+function arePasswordsMatching(){
   return $password.val() === $confirmPassword.val();
 }
 
 function canSubmit() {
-  return isPasswordValid() && arePasswordsMatching();
+  return isPasswordValid() && arePasswordsMatching() && isUsernamePresent();
 }
 
 function passwordEvent(){
-    //Find out if password is valid  
-    if(isPasswordValid()) {
-      //Hide hint if valid
-      $password.next().hide();
-    } else {
-      //else show hint
-      $password.next().show();
-    }
+  if(isPasswordValid()){
+    $password.next().hide();
+  } else {
+    $password.next().show();
+  }
 }
 
-function confirmPasswordEvent() {
-  //Find out if password and confirmation match
-  if(arePasswordsMatching()) {
-    //Hide hint if match
+function confirmPasswordEvent(){
+  if(arePasswordsMatching()){
     $confirmPassword.next().hide();
   } else {
-    //else show hint 
     $confirmPassword.next().show();
   }
 }
 
-function enableSubmitEvent() {
-  $("#submit").prop("disabled", !canSubmit());
+function enableSubmitEvent(){
+    $("#submit").prop("disabled", !canSubmit());
 }
 
-//When event happens on password input
+
 $password.focus(passwordEvent).keyup(passwordEvent).keyup(confirmPasswordEvent).keyup(enableSubmitEvent);
-
-//When event happens on confirmation input
 $confirmPassword.focus(confirmPasswordEvent).keyup(confirmPasswordEvent).keyup(enableSubmitEvent);
-
 enableSubmitEvent();
-
-
-
-
-
-
-
-
-
