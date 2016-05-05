@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta name="author" content="Tenche Alexandru">
-	<title>formValidation</title>
+	<title> formValidation </title>
 	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 	<style type="text/css">
 		#wrapper{
@@ -97,8 +97,8 @@
 
 			if(!$.isNumeric($('#phone').val())){
 				errorMessage += '<br>not a valid phone number';
-			}  
-			
+			}
+
 			if($('#pass1').val() != $('#pass2').val()){
 				errorMessage += '<br>passwords dont match';
 			}
@@ -107,9 +107,8 @@
 				alert('success');
 			}
 
-
 			$('#error').html(errorMessage);
-			
+
 		});
 
 </script>
