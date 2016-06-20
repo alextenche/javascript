@@ -41,3 +41,29 @@ isNaN("42");
 function isThisActuallyANumberDontLie(data){
   return (typeof data === "number" && !isNaN(data));
 }
+
+console.log(isThisActuallyANumberDontLie(640));
+console.log(isThisActuallyANumberDontLie("640"));
+
+function checkValidZip(){
+  var entry = document.getElementById("zip").value;
+  var userZip = parseInt(entry);
+
+  try{
+    if(isThisActuallyANumberDontLie(userZip)){
+      if(userZip.toFixed(0).length === 5){
+        return true;
+      } else {
+        throw new Error("Nope!");
+      }
+    } else {
+      throw new Error("Nope!");
+    }
+  } catch(error){
+    if(error.message === "Nope!"){
+      alert("please enter a valid zip !");
+      return false;
+    }
+    // other error responses here
+  }
+}
