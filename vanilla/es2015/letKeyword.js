@@ -1,3 +1,10 @@
 'use strict';
 
-let score = 0;
+const person = {
+    name: "Alex Tenche",
+    role: "student"
+}
+
+function personDescription() {
+    
+}
